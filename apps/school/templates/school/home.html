@@ -13,6 +13,9 @@
     <a href="{% url 'assistance_app:report_assistance' %}" class="btn btn-primary mx-3" type="button">Ver Registro de
         Asistencia</a>
     <a href="{% url 'student_app:generate_qr' %}" class="btn btn-primary mx-3" type="button">Generar QR's</a>
+    {% if request.user.is_staff %}
+        <a href="{% url 'student_app:import_xlsx' %}" class="btn btn-warning mx-3" type="button">Importar (Excel)</a>
+    {% endif %}
     <a href="{% url 'logout' %}" class="btn btn-danger mx-3 mb-3" type="button">Salir</a>
     <!--<a href="{% url 'school_app:home' %}" class="btn btn-warning mx-3 mb-3" type="button">Cambiar Contraseña</a>-->
 {% endblock content %}

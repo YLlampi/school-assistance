@@ -52,10 +52,9 @@
 
 {% block js %}
     <script type="application/javascript">
-        $('#id_student').select2({
-        });
-        $('#id_classroom').select2({
-        });
+        $('#id_student').select2({});
+        $('#id_classroom').select2({});
+
         function limper(request) {
             $('#id_student option').removeAttr('selected');
             $('#id_student option:first').attr('selected', 'selected');
@@ -103,6 +102,11 @@
                     id_classroom = 0;
                 }
 
+                if (!id_classroom && !id_student) {
+                    toastr["error"]("Seleccione almenos una opcion", "ERROR");
+                    return;
+                }
+
 
                 limper()
                 try {
@@ -140,6 +144,9 @@
                     dataType: 'json',
                     type: 'GET',
                     data: {'data': JSON.stringify(data)},
+
+
+
 
 
 
@@ -193,7 +200,13 @@
 
 
 
+
+
+
                 {#toastr["warning"](response.responseJSON.content, response.responseJSON.title)#}
+
+
+
 
 
 

@@ -9,5 +9,3 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'school/home.html'
     login_url = reverse_lazy('login')
-
-
