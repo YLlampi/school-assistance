@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="" style="background: #660708">
+        <h1 style="color: white">Hola, <strong>{{ request.user.first_name }}</strong></h1>
+    </div>
+    <div>
+        <img src="{% static 'img/logo_qr_bg.png' %}">
+    </div>
+    <a href="{% url 'assistance_app:take_assistance' %}" class="btn btn-success mx-3" type="button">Tomar Asistencia</a>
+    <a href="{% url 'assistance_app:report_assistance' %}" class="btn btn-primary mx-3" type="button">Ver Registro de
+        Asistencia</a>
+    <a href="{% url 'student_app:generate_qr' %}" class="btn btn-primary mx-3" type="button">Generar QR's</a>
+    <a href="{% url 'logout' %}" class="btn btn-danger mx-3 mb-3" type="button">Salir</a>
+    <!--<a href="{% url 'school_app:home' %}" class="btn btn-warning mx-3 mb-3" type="button">Cambiar Contraseña</a>-->
+{% endblock content %}
