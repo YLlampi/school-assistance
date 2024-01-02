@@ -9,6 +9,12 @@
             border-radius: 10px;
             box-shadow: 0px 0px 5px 0px #999;
         }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
     </style>
 {% endblock style %}
 
@@ -37,13 +43,21 @@
                 Datos del Estudiante
             </div>
             <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p id="nombre_p_id"><strong>Nombre: </strong><label id="nombre_id"></label></p>
-                    <p id="apellido_p_id"><strong>Apellido: </strong><label id="apellido_id"></label></p>
-                    <p id="dni_p_id"><strong>DNI: </strong><label id="dni_id"></label></p>
-                    <p id="grado_p_id"><strong>Grado: </strong><label id="grado_id"></label></p>
-                    <p id="seccion_p_id"><strong>Sección: </strong><label id="seccion_id"></label></p>
-                </blockquote>
+                <div class="row">
+                    <div class="col-md-8">
+                        <blockquote class="blockquote mb-0">
+                            <p id="nombre_p_id"><strong>Nombre: </strong><label id="nombre_id"></label></p>
+                            <p id="apellido_p_id"><strong>Apellido: </strong><label id="apellido_id"></label></p>
+                            <p id="dni_p_id"><strong>DNI: </strong><label id="dni_id"></label></p>
+                            <p id="grado_p_id"><strong>Grado: </strong><label id="grado_id"></label></p>
+                            <p id="seccion_p_id"><strong>Sección: </strong><label id="seccion_id"></label></p>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="" id="profile_id" class="img-fluid">
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -79,7 +93,7 @@
 
             // Opcionalmente, oculta el select después de capturar el valor
             {#selectElement.hidden = false;#}
-            {#selectElement.disabled = true;#}
+            selectElement.disabled = true;
             document.getElementById("video_id").hidden = false;
         });
 
@@ -244,6 +258,9 @@
                     correct_sound.play()
 
                     toastr["success"]("Alumno registrado", "Éxito")
+
+                    let imageUrl = response.profileImageUrl;
+                    $("#profile_id").attr("src", imageUrl);
 
                     toastr.options = {
                         "closeButton": false,

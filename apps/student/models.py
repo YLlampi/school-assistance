@@ -7,6 +7,7 @@ class Student(models.Model):
     first_name = models.CharField('Nombre', max_length=50)
     last_name = models.CharField('Apellido', max_length=50)
     dni = models.CharField('DNI', max_length=8)
+    profile_imagen = models.ImageField('Foto Perfil', upload_to ='profile_image/% Y/% m/% d/', null=True, blank=True)
 
     classroom = models.ForeignKey(Classroom, verbose_name='Aula', on_delete=models.CASCADE)
 

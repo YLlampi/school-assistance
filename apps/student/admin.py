@@ -15,5 +15,5 @@ from .models import Student
 
 @admin.register(Student)
 class StudentAdmin(ImportExportModelAdmin):
-    list_display = ('first_name', 'last_name', 'dni', 'classroom')
+    list_display = ('first_name', 'last_name', 'dni', 'profile_imagen', 'classroom')
     search_fields = ('first_name', 'last_name', 'dni')
