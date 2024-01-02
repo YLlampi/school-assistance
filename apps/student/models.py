@@ -14,6 +14,11 @@ class Student(models.Model):
     def get_fullname(self):
         return f'{self.first_name} {self.last_name}'
 
+    def get_profile_image(self):
+        if not self.profile_imagen:
+            return f'/static/img/profile_default.webp'
+        return self.profile_imagen.url
+
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 

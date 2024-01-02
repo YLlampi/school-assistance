@@ -94,7 +94,7 @@ def register_assistance(request):
 
         return JsonResponse({
             'dni': dni,
-            'profileImageUrl': student_obj.profile_imagen.url,
+            'profileImageUrl': student_obj.get_profile_image(),
             'exito': 'Alumno Registrado Correctamente'
         }, status=HTTPStatus.OK)
 
